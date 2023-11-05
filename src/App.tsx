@@ -10,17 +10,19 @@ function calculateOccupancy(premiumRooms: any, economyRooms: any) {
   let economyOccupancy = 0;
   let premiumRevenue = 0;
   let economyRevenue = 0;
+  let upgradeGuest = false;
 
   for (const guest of sortedGuests) {
     if (guest < 100) {
-        if (economyRooms > 0) {
-          economyOccupancy++;
-          economyRevenue += guest;
-          economyRooms--;
-        } else if (premiumRooms > 0) {
+        if (premiumRooms > 0 && upgradeGuest === false) {
+          upgradeGuest = true;
           premiumOccupancy++;
           premiumRevenue += guest;
           premiumRooms--;
+        } else if (economyRooms > 0) {
+          economyOccupancy++;
+          economyRevenue += guest;
+          economyRooms--;
         } 
     } else {
         if (premiumRooms > 0) {
