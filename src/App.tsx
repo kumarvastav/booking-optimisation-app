@@ -21,21 +21,13 @@ function calculateOccupancy(premiumRooms: any, economyRooms: any) {
           premiumOccupancy++;
           premiumRevenue += guest;
           premiumRooms--;
-        } else {
-          break;
-        }
+        } 
     } else {
         if (premiumRooms > 0) {
             premiumOccupancy++;
             premiumRevenue += guest;
             premiumRooms--;
-        } else if (economyRooms > 0) {
-           economyOccupancy++;
-           economyRevenue += guest;
-           economyRooms--;
-           } else {
-                break;
-           }
+        }
     }
   }
 
